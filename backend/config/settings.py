@@ -81,6 +81,8 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_COOKIE_SECURE = not DEBUG or os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
 if not DEBUG or os.getenv('TRUST_X_FORWARDED_PROTO', 'False').lower() == 'true':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+if not DEBUG:
+    SECURE_HSTS_SECONDS = 86400
 
 ROOT_URLCONF = 'config.urls'
 
